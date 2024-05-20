@@ -2,9 +2,9 @@ from unittest.mock import patch
 
 from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase
-from openwisp_utils.admin_theme import settings as app_settings
-from openwisp_utils.admin_theme.context_processor import admin_theme_settings
-from openwisp_utils.admin_theme.theme import (
+from immunity_utils.admin_theme import settings as app_settings
+from immunity_utils.admin_theme.context_processor import admin_theme_settings
+from immunity_utils.admin_theme.theme import (
     register_theme_js,
     register_theme_link,
     unregister_theme_js,
@@ -28,7 +28,7 @@ class TestThemeHelpers(TestCase):
                 register_theme_link(links[0])
             self.assertEqual(
                 str(context.exception),
-                '"openwisp_utils.admin_theme.theme.register_theme_link"'
+                '"immunity_utils.admin_theme.theme.register_theme_link"'
                 ' accepts "list" of links',
             )
 
@@ -54,7 +54,7 @@ class TestThemeHelpers(TestCase):
                 unregister_theme_link(links[0])
             self.assertEqual(
                 str(context.exception),
-                '"openwisp_utils.admin_theme.theme.unregister_theme_link"'
+                '"immunity_utils.admin_theme.theme.unregister_theme_link"'
                 ' accepts "list" of links',
             )
 
@@ -80,16 +80,16 @@ class TestThemeHelpers(TestCase):
             admin_theme = admin_theme_settings(None)
             self.assertNotIn(links[0], admin_theme['OPENWISP_ADMIN_THEME_LINKS'])
 
-    @patch('openwisp_utils.admin_theme.theme.THEME_JS', ['dummy.js'])
+    @patch('immunity_utils.admin_theme.theme.THEME_JS', ['dummy.js'])
     def test_registering_unregistering_js(self):
-        jss = ['/static/openwisp-utils/js/uuid.js']
+        jss = ['/static/immunity-utils/js/uuid.js']
 
         with self.subTest('Test registering single js'):
             with self.assertRaises(ImproperlyConfigured) as context:
                 register_theme_js(jss[0])
             self.assertEqual(
                 str(context.exception),
-                '"openwisp_utils.admin_theme.theme.register_theme_js"'
+                '"immunity_utils.admin_theme.theme.register_theme_js"'
                 ' accepts "list" of JS',
             )
 
@@ -115,7 +115,7 @@ class TestThemeHelpers(TestCase):
                 unregister_theme_js(jss[0])
             self.assertEqual(
                 str(context.exception),
-                '"openwisp_utils.admin_theme.theme.unregister_theme_js"'
+                '"immunity_utils.admin_theme.theme.unregister_theme_js"'
                 ' accepts "list" of JS',
             )
 

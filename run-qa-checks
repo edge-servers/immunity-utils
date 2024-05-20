@@ -2,7 +2,7 @@
 set -e
 
 qa-checks () {
-    openwisp-qa-check \
+    immunity-qa-check \
         --csslinter\
         --jslinter\
         --migration-path "./tests/test_project/migrations"
@@ -29,7 +29,7 @@ for i in "$@"
 do
 case $i in
 
-    # Used by openwisp-pre-push-hook
+    # Used by immunity-pre-push-hook
     --pre-push)
         qa-checks || { echo "qa-checks failed!"; exit 1; }
         pre-push-checks

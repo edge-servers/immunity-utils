@@ -4,7 +4,7 @@ import uuid
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
-from openwisp_utils.test_selenium_mixins import (
+from immunity_utils.test_selenium_mixins import (
     SeleniumTestMixin as BaseSeleniumTestMixin,
 )
 from selenium.common.exceptions import NoSuchElementException

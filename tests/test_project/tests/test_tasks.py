@@ -1,12 +1,12 @@
 from unittest import TestCase
 
 from celery import shared_task
-from openwisp_utils.tasks import OpenwispCeleryTask
+from immunity_utils.tasks import ImmunityCeleryTask
 
 
-class TestOpenwispCeleryTask(TestCase):
+class TestImmunityCeleryTask(TestCase):
     def test_default_time_limits(self):
-        @shared_task(base=OpenwispCeleryTask)
+        @shared_task(base=ImmunityCeleryTask)
         def do_nothing():
             pass
 

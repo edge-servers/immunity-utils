@@ -6,11 +6,11 @@ from django.contrib.auth.models import Permission
 from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase
 from django.urls import reverse
-from openwisp_utils.admin import CopyableFieldError, CopyableFieldsAdmin, ReadOnlyAdmin
-from openwisp_utils.admin_theme import settings as admin_theme_settings
-from openwisp_utils.admin_theme.apps import OpenWispAdminThemeConfig, _staticfy
-from openwisp_utils.admin_theme.checks import admin_theme_settings_checks
-from openwisp_utils.admin_theme.filters import InputFilter, SimpleInputFilter
+from immunity_utils.admin import CopyableFieldError, CopyableFieldsAdmin, ReadOnlyAdmin
+from immunity_utils.admin_theme import settings as admin_theme_settings
+from immunity_utils.admin_theme.apps import OpenWispAdminThemeConfig, _staticfy
+from immunity_utils.admin_theme.checks import admin_theme_settings_checks
+from immunity_utils.admin_theme.filters import InputFilter, SimpleInputFilter
 
 from ..admin import ProjectAdmin, ShelfAdmin
 from ..models import (
@@ -291,7 +291,7 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
         self.assertContains(
             response, 'Only added operators will have permission to access the project.'
         )
-        self.assertContains(response, 'https://github.com/openwisp/openwisp-utils/')
+        self.assertContains(response, 'https://github.com/edge-servers/immunity-utils/')
         # Response should contain static in 'icon_url'
         self.assertContains(
             response, '<img src="/static/admin/img/icon-alert.svg">', html=True
@@ -325,14 +325,14 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
                 str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
             )
         # test with desired configuration
-        # Here openwisp_utils.admin_theme.theme.THEME_LINKS has been
+        # Here immunity_utils.admin_theme.theme.THEME_LINKS has been
         # mocked instead of app_settings.OPENWISP_ADMIN_THEME_LINKS
-        # because openwisp_utils.admin_theme.theme.THEME_LINKS creates
+        # because immunity_utils.admin_theme.theme.THEME_LINKS creates
         # a copy of app_settings.OPENWISP_ADMIN_THEME_LINKS at project
         # startup. Therefore, mocking app_settings.OPENWISP_ADMIN_THEME_LINKS
         # will have no effect here.
         with patch(
-            'openwisp_utils.admin_theme.theme.THEME_LINKS',
+            'immunity_utils.admin_theme.theme.THEME_LINKS',
             [
                 {
                     'href': '/static/custom-admin-theme.css',
@@ -347,20 +347,20 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
 
         # test if files are loaded with staticfiles
         response = self.client.get(reverse('admin:index'))
-        self.assertContains(response, '/static/admin/css/openwisp.css" media="all"')
+        self.assertContains(response, '/static/admin/css/immunity.css" media="all"')
         self.assertContains(response, '/static/menu-test.css" media="all"')
-        self.assertContains(response, 'href="/static/ui/openwisp/images/favicon.png"')
+        self.assertContains(response, 'href="/static/ui/immunity/images/favicon.png"')
         self.assertContains(response, '/static/dummy.js')
 
     def test_admin_theme_static_backward_compatible(self):
         # test for backward compatibility
-        with patch('openwisp_utils.admin_theme.apps.static', side_effect=ValueError):
+        with patch('immunity_utils.admin_theme.apps.static', side_effect=ValueError):
             self.assertEqual(
-                _staticfy('admin/css/openwisp.css'), 'admin/css/openwisp.css'
+                _staticfy('admin/css/immunity.css'), 'admin/css/immunity.css'
             )
         # test static files are loaded with staticfiles
         self.assertEqual(
-            _staticfy('admin/css/openwisp.css'), '/static/admin/css/openwisp.css'
+            _staticfy('admin/css/immunity.css'), '/static/admin/css/immunity.css'
         )
 
     def test_admin_theme_js_setting(self):
@@ -379,18 +379,18 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
                 str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
             )
         # test with desired configuration
-        # Here openwisp_utils.admin_theme.theme.THEME_JS has been
+        # Here immunity_utils.admin_theme.theme.THEME_JS has been
         # mocked instead of app_settings.OPENWISP_ADMIN_THEME_JS
-        # because openwisp_utils.admin_theme.theme.THEME_JS creates
+        # because immunity_utils.admin_theme.theme.THEME_JS creates
         # a copy of app_settings.OPENWISP_ADMIN_THEME_JS at project
         # startup. Therefore, mocking app_settings.OPENWISP_ADMIN_THEME_JS
         # will have no effect here.
         with patch(
-            'openwisp_utils.admin_theme.theme.THEME_JS',
-            ['/static/openwisp-utils/js/uuid.js'],
+            'immunity_utils.admin_theme.theme.THEME_JS',
+            ['/static/immunity-utils/js/uuid.js'],
         ):
             response = self.client.get(reverse('admin:index'))
-            self.assertContains(response, 'src="/static/openwisp-utils/js/uuid.js"')
+            self.assertContains(response, 'src="/static/immunity-utils/js/uuid.js"')
 
     def test_login(self):
         url = reverse('admin:login')
@@ -528,7 +528,7 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
             # Default value is used for FallbackCharField
             self.assertContains(
                 response,
-                '<input type="text" name="greeting_text" value="Welcome to OpenWISP!"'
+                '<input type="text" name="greeting_text" value="Welcome to Immunity!"'
                 ' class="vTextField" maxlength="200" id="id_greeting_text">',
             )
             # Overridden value is used for the FallbackURLField
@@ -571,31 +571,31 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
             )
 
     @patch(
-        'openwisp_utils.admin_theme.system_info.settings.INSTALLED_APPS',
-        ['openwisp_users', 'openwisp_utils.admin_theme'],
+        'immunity_utils.admin_theme.system_info.settings.INSTALLED_APPS',
+        ['immunity_users', 'immunity_utils.admin_theme'],
     )
     def test_system_information(self, *args):
         def _assert_system_information(response):
-            self.assertContains(response, '<li>openwisp-utils:')
+            self.assertContains(response, '<li>immunity-utils:')
             self.assertContains(response, '<li>netjsonconfig:')
             self.assertContains(response, '<h2>OS Information</h2>')
             self.assertContains(response, '<strong>OS version:</strong>')
             self.assertContains(response, '<strong>Kernel version:</strong>')
             self.assertContains(response, '<strong>Hardware platform:</strong>')
 
-        with self.subTest('Test openwisp version is defined'):
-            with patch('openwisp2.__openwisp_version__', '23.0.0'):
+        with self.subTest('Test immunity version is defined'):
+            with patch('immunity2.__immunity_version__', '23.0.0'):
                 response = self.client.get(reverse('admin:ow-info'))
             self.assertEqual(response.status_code, 200)
-            self.assertContains(response, '<h2>OpenWISP Version: 23.0.0</h2>')
+            self.assertContains(response, '<h2>Immunity Version: 23.0.0</h2>')
             _assert_system_information(response)
 
-        with self.subTest('Test openwisp version is not defined'):
+        with self.subTest('Test immunity version is not defined'):
             with patch(
-                'openwisp_utils.admin_theme.system_info.import_string',
+                'immunity_utils.admin_theme.system_info.import_string',
                 side_effect=ImportError,
             ):
                 response = self.client.get(reverse('admin:ow-info'))
             self.assertEqual(response.status_code, 200)
-            self.assertNotContains(response, '<h2>OpenWISP Version')
+            self.assertNotContains(response, '<h2>Immunity Version')
             _assert_system_information(response)

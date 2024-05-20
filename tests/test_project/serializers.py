@@ -1,4 +1,4 @@
-from openwisp_utils.api.serializers import ValidatedModelSerializer
+from immunity_utils.api.serializers import ValidatedModelSerializer
 from test_project.models import Shelf
 
 

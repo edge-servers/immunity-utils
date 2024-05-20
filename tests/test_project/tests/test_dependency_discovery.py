@@ -1,7 +1,7 @@
 import unittest
 
-from openwisp_utils.loaders import DependencyLoader
-from openwisp_utils.staticfiles import DependencyFinder
+from immunity_utils.loaders import DependencyLoader
+from immunity_utils.staticfiles import DependencyFinder
 
 
 class TestDependencyDiscovery(unittest.TestCase):
@@ -13,4 +13,4 @@ class TestDependencyDiscovery(unittest.TestCase):
     def test_dependency_loader(self):
         loader = DependencyLoader(engine=None)
         self.assertIsInstance(loader.get_dirs(), list)
-        self.assertIn('openwisp_controller', loader.get_dirs()[0])
+        self.assertIn('immunity_controller', loader.get_dirs()[0])

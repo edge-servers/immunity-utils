@@ -23,10 +23,10 @@ def make_executable(f):
 def run_checks():
     print("Initializing tests before pushing...")
     try:
-        import openwisp_utils
+        import immunity_utils
     except:
         raise ImportError(
-            "'openwisp_utils' failed to import. Make sure all dependencies "
+            "'immunity_utils' failed to import. Make sure all dependencies "
             "are installed and virtual environment is activated."
         )
 

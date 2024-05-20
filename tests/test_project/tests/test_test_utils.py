@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from django.dispatch import Signal
 from django.test import TestCase, override_settings
-from openwisp_utils.tests import (
+from immunity_utils.tests import (
     AssertNumQueriesSubTestMixin,
     TimeLoggingTestRunner,
     capture_any_output,
@@ -11,7 +11,7 @@ from openwisp_utils.tests import (
     capture_stdout,
     catch_signal,
 )
-from openwisp_utils.utils import deep_merge_dicts, print_color, retryable_request
+from immunity_utils.utils import deep_merge_dicts, print_color, retryable_request
 from requests.exceptions import ConnectionError, RetryError
 from urllib3.response import HTTPResponse
 
@@ -97,7 +97,7 @@ class TestUtils(TestCase):
                 side_effect=OSError,
             ) as mocked__get_conn:
                 with self.assertRaises(ConnectionError) as error:
-                    retryable_request('get', url='https://openwisp.org')
+                    retryable_request('get', url='https://immunity.org')
                 self.assertEqual(len(mocked__get_conn.mock_calls), 4)
                 self.assertIn(
                     'OSError',
@@ -111,7 +111,7 @@ class TestUtils(TestCase):
                 return_value=HTTPResponse(status=500, version='1.1'),
             ) as mocked_getResponse:
                 with self.assertRaises(RetryError) as error:
-                    retryable_request('get', url='https://openwisp.org')
+                    retryable_request('get', url='https://immunity.org')
                 self.assertEqual(len(mocked_getResponse.mock_calls), 4)
                 self.assertIn(
                     'too many 500 error responses',
@@ -120,11 +120,11 @@ class TestUtils(TestCase):
 
         with self.subTest('Test customization with retry_kwargs'):
             with patch(
-                'openwisp_utils.utils.Retry',
-            ) as mocked_retry, patch('openwisp_utils.utils.requests.Session'):
+                'immunity_utils.utils.Retry',
+            ) as mocked_retry, patch('immunity_utils.utils.requests.Session'):
                 retryable_request(
                     method='get',
-                    url='https://openwisp.org',
+                    url='https://immunity.org',
                     max_retries=10,
                     backoff_factor=2,
                     backoff_jitter=0.2,

@@ -2,7 +2,7 @@
 import os
 import sys
 
-from openwisp_utils import get_version
+from immunity_utils import get_version
 from setuptools import find_packages, setup
 
 if sys.argv[-1] == 'publish':
@@ -19,27 +19,27 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-    name='openwisp-utils',
+    name='immunity-utils',
     version=get_version(),
     license='BSD-3-Clause',
     author='Rohith Asrk',
     author_email='rohith.asrk@gmail.com',
-    description='OpenWISP 2 Utilities',
+    description='Immunity 2 Utilities',
     long_description=open('README.rst').read(),
-    url='http://openwisp.org',
-    download_url='https://github.com/openwisp/openwisp-utils/releases',
+    url='http://immunity.org',
+    download_url='https://github.com/edge-servers/immunity-utils/releases',
     platforms=['Platform Independent'],
-    keywords=['django', 'netjson', 'openwrt', 'networking', 'openwisp'],
+    keywords=['django', 'netjson', 'openwrt', 'networking', 'immunity'],
     packages=find_packages(exclude=['tests*', 'docs*']),
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'checkmigrations = openwisp_utils.qa:check_migration_name',
-            'checkcommit = openwisp_utils.qa:check_commit_message',
-            'checkrst = openwisp_utils.qa:check_rst_files',
+            'checkmigrations = immunity_utils.qa:check_migration_name',
+            'checkcommit = immunity_utils.qa:check_commit_message',
+            'checkrst = immunity_utils.qa:check_rst_files',
         ]
     },
-    scripts=['openwisp-qa-check', 'openwisp-qa-format', 'openwisp-pre-push-hook'],
+    scripts=['immunity-qa-check', 'immunity-qa-format', 'immunity-pre-push-hook'],
     zip_safe=False,
     install_requires=[
         'django-model-utils~=4.3.1',

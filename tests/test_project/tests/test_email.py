@@ -3,12 +3,12 @@ from unittest.mock import patch
 
 from django.core import mail
 from django.test import TestCase, override_settings
-from openwisp_utils.admin_theme import settings as app_settings
-from openwisp_utils.admin_theme.email import SMTPRecipientsRefused, send_email
+from immunity_utils.admin_theme import settings as app_settings
+from immunity_utils.admin_theme.email import SMTPRecipientsRefused, send_email
 
 
 class TestEmail(TestCase):
-    @override_settings(DEFAULT_FROM_EMAIL='test@openwisp.io')
+    @override_settings(DEFAULT_FROM_EMAIL='test@immunity.io')
     def test_email(self):
         attachment = MIMEText('Test attachment')
         send_email(
@@ -21,11 +21,11 @@ class TestEmail(TestCase):
         self.assertEqual(len(mail.outbox), 1)
         email = mail.outbox.pop()
         # test from email
-        self.assertEqual(email.from_email, 'test@openwisp.io')
+        self.assertEqual(email.from_email, 'test@immunity.io')
         # test image logo
         self.assertIn(
-            'https://raw.githubusercontent.com/openwisp/openwisp-utils/master/'
-            'openwisp_utils/static/openwisp-utils/images/openwisp-logo.png',
+            'https://raw.githubusercontent.com/immunity/immunity-utils/master/'
+            'immunity_utils/static/immunity-utils/images/immunity-logo.png',
             email.alternatives[0][0],
         )
         # test email doesn't contain link
@@ -37,17 +37,17 @@ class TestEmail(TestCase):
             'Test mail',
             '',
             'This is a test email',
-            ['devkapilbansal@gmail.com', 'test123@openwisp.io'],
+            ['devkapilbansal@gmail.com', 'test123@immunity.io'],
             extra_context={
                 'call_to_action_text': 'Click me',
-                'call_to_action_url': 'https://openwisp.io/docs/index.html',
+                'call_to_action_url': 'https://immunity.io/docs/index.html',
             },
         )
         self.assertEqual(len(mail.outbox), 1)
         email = mail.outbox.pop()
         self.assertIn('Click me</a>\n', email.alternatives[0][0])
         self.assertIn(
-            '<a href="https://openwisp.io/docs/index.html" class="btn">',
+            '<a href="https://immunity.io/docs/index.html" class="btn">',
             email.alternatives[0][0],
         )
 
@@ -57,7 +57,7 @@ class TestEmail(TestCase):
             'Test mail',
             'This is a test email',
             'Email body in html message',
-            ['devkapilbansal@gmail.com', 'test123@openwisp.io'],
+            ['devkapilbansal@gmail.com', 'test123@immunity.io'],
         )
         self.assertEqual(len(mail.outbox), 1)
         email = mail.outbox.pop()
@@ -70,7 +70,7 @@ class TestEmail(TestCase):
             'Test mail',
             'This is a test email',
             '',
-            ['devkapilbansal@gmail.com', 'test123@openwisp.io'],
+            ['devkapilbansal@gmail.com', 'test123@immunity.io'],
         )
         self.assertEqual(len(mail.outbox), 1)
         email = mail.outbox.pop()

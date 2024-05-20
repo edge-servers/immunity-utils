@@ -7,13 +7,13 @@ from django.core.exceptions import ImproperlyConfigured
 from django.test import TestCase as DjangoTestCase
 from django.urls import reverse
 from django.utils.timezone import localdate, now, timedelta
-from openwisp_utils.admin_theme import (
+from immunity_utils.admin_theme import (
     register_dashboard_chart,
     register_dashboard_template,
     unregister_dashboard_chart,
     unregister_dashboard_template,
 )
-from openwisp_utils.admin_theme.dashboard import get_dashboard_context
+from immunity_utils.admin_theme.dashboard import get_dashboard_context
 
 from ..models import Operator, Project, RadiusAccounting
 from . import AdminTestMixin, CreateMixin
@@ -21,9 +21,9 @@ from .utils import MockRequest, MockUser
 
 
 class TestDashboardSchema(UnitTestCase):
-    @patch('openwisp_utils.admin_theme.dashboard.DASHBOARD_CHARTS', OrderedDict())
+    @patch('immunity_utils.admin_theme.dashboard.DASHBOARD_CHARTS', OrderedDict())
     def test_register_dashboard_chart(self):
-        from openwisp_utils.admin_theme.dashboard import DASHBOARD_CHARTS
+        from immunity_utils.admin_theme.dashboard import DASHBOARD_CHARTS
 
         dashboard_element = {
             'name': 'Test Chart',
@@ -106,9 +106,9 @@ class TestDashboardSchema(UnitTestCase):
                 )
             self.assertIn('filters', str(ctx.exception))
 
-    @patch('openwisp_utils.admin_theme.dashboard.DASHBOARD_TEMPLATES', OrderedDict())
+    @patch('immunity_utils.admin_theme.dashboard.DASHBOARD_TEMPLATES', OrderedDict())
     def test_register_dashboard_template(self):
-        from openwisp_utils.admin_theme.dashboard import DASHBOARD_TEMPLATES
+        from immunity_utils.admin_theme.dashboard import DASHBOARD_TEMPLATES
 
         dashboard_element = {
             'template': 'password_change_done.html',
@@ -153,8 +153,8 @@ class TestDashboardSchema(UnitTestCase):
             with self.assertRaises(ImproperlyConfigured):
                 register_dashboard_template(1, dashboard_element, 'test')
 
-    @patch('openwisp_utils.admin_theme.dashboard.DASHBOARD_TEMPLATES', OrderedDict())
-    @patch('openwisp_utils.admin_theme.dashboard.DASHBOARD_CHARTS', OrderedDict())
+    @patch('immunity_utils.admin_theme.dashboard.DASHBOARD_TEMPLATES', OrderedDict())
+    @patch('immunity_utils.admin_theme.dashboard.DASHBOARD_CHARTS', OrderedDict())
     def test_dashboard_after_charts(self):
         register_dashboard_template(
             position=0,
@@ -261,7 +261,7 @@ class TestAdminDashboard(AdminTestMixin, CreateMixin, DjangoTestCase):
             self.client.get(reverse('admin:index'))
         unregister_dashboard_chart('Test Chart')
 
-    @patch('openwisp_utils.admin_theme.settings.ADMIN_DASHBOARD_ENABLED', False)
+    @patch('immunity_utils.admin_theme.settings.ADMIN_DASHBOARD_ENABLED', False)
     def test_dashboard_disabled(self):
         with self.subTest('Test redirect from login page'):
             response = self.client.get(reverse('admin:login'))

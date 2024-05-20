@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
-from openwisp_utils.admin import (
+from immunity_utils.admin import (
     AlwaysHasChangedMixin,
     HelpTextStackedInline,
     ReadOnlyAdmin,
@@ -10,7 +10,7 @@ from openwisp_utils.admin import (
     TimeReadonlyAdminMixin,
     UUIDAdmin,
 )
-from openwisp_utils.admin_theme.filters import (
+from immunity_utils.admin_theme.filters import (
     AutocompleteFilter,
     InputFilter,
     SimpleInputFilter,
@@ -75,7 +75,7 @@ class OperatorInline(HelpTextStackedInline):
     extra = 0
     help_text = {
         'text': _('Only added operators will have permission to access the project.'),
-        'documentation_url': 'https://github.com/openwisp/openwisp-utils/',
+        'documentation_url': 'https://github.com/edge-servers/immunity-utils/',
     }
 
 

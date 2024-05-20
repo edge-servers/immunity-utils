@@ -2,13 +2,13 @@ from django.db.models import Case, Count, Sum, When
 from django.urls import reverse_lazy
 from django.utils.timezone import localdate
 from django.utils.translation import gettext_lazy as _
-from openwisp_utils.admin_theme import (
+from immunity_utils.admin_theme import (
     register_dashboard_chart,
     register_dashboard_template,
 )
-from openwisp_utils.admin_theme.menu import register_menu_group, register_menu_subitem
-from openwisp_utils.api.apps import ApiAppConfig
-from openwisp_utils.utils import register_menu_items
+from immunity_utils.admin_theme.menu import register_menu_group, register_menu_subitem
+from immunity_utils.api.apps import ApiAppConfig
+from immunity_utils.utils import register_menu_items
 
 
 class TestAppConfig(ApiAppConfig):
@@ -184,8 +184,8 @@ class TestAppConfig(ApiAppConfig):
             'label': _('Docs'),
             'items': {
                 1: {
-                    'label': _('OpenWISP'),
-                    'url': 'https://openwisp.org/',
+                    'label': _('Immunity'),
+                    'url': 'https://immunity.org/',
                     'icon': 'link',
                 }
             },
@@ -207,7 +207,7 @@ class TestAppConfig(ApiAppConfig):
             item_position=2,
             config={
                 'label': _('Code'),
-                'url': 'https://openwisp.org/thecode.html',
+                'url': 'https://immunity.org/thecode.html',
                 'icon': 'code',
             },
         )

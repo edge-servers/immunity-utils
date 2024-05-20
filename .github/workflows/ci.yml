@@ -1,6 +1,6 @@
 ---
 
-name: OpenWISP Utils CI Build
+name: Immunity Utils CI Build
 
 on:
   push:
@@ -47,7 +47,7 @@ jobs:
     - name: Install npm dependencies
       run: sudo npm install -g jshint stylelint
 
-    - name: Install openwisp-utils
+    - name: Install immunity-utils
       run: |
         pip install -e .[qa,rest,selenium]
         pip install ${{ matrix.django-version }}
@@ -56,7 +56,7 @@ jobs:
       run: ./run-qa-checks
 
     - name: Tests
-      run: coverage run --source=openwisp_utils runtests.py
+      run: coverage run --source=immunity_utils runtests.py
       env:
         SELENIUM_HEADLESS: 1
 

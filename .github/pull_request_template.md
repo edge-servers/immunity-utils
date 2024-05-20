@@ -8,7 +8,7 @@
 
 #### Checklist
 
-- [ ] I have read the [contributing guidelines](http://openwisp.io/docs/developer/contributing.html#how-to-commit-your-changes-properly).
+- [ ] I have read the [contributing guidelines](http://immunity.io/docs/developer/contributing.html#how-to-commit-your-changes-properly).
 - [ ] I have manually tested the proposed changes.
 - [ ] I have written new test cases to avoid regressions. (if necessary)
 - [ ] I have updated the documentation. (e.g. README.rst)

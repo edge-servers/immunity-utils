@@ -1,13 +1,13 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from openwisp_utils.base import (
+from immunity_utils.base import (
     FallbackModelMixin,
     KeyField,
     TimeStampedEditableModel,
     UUIDModel,
 )
-from openwisp_utils.fields import (
+from immunity_utils.fields import (
     FallbackBooleanChoiceField,
     FallbackCharChoiceField,
     FallbackCharField,
@@ -122,7 +122,7 @@ class OrganizationRadiusSettings(FallbackModelMixin, models.Model):
         null=True,
         blank=True,
         max_length=200,
-        fallback='Welcome to OpenWISP!',
+        fallback='Welcome to Immunity!',
     )
     password_reset_url = FallbackURLField(
         null=True,

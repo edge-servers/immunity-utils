@@ -6,14 +6,14 @@ from django.core.exceptions import ImproperlyConfigured
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 from django.urls.exceptions import NoReverseMatch
-from openwisp_utils.admin_theme.menu import (
+from immunity_utils.admin_theme.menu import (
     MenuGroup,
     MenuLink,
     ModelLink,
     register_menu_group,
     register_menu_subitem,
 )
-from openwisp_utils.utils import SortedOrderedDict
+from immunity_utils.utils import SortedOrderedDict
 
 
 class TestMenuSchema(TestCase):
@@ -45,10 +45,10 @@ class TestMenuSchema(TestCase):
             'icon': icon,
         }
 
-    @patch('openwisp_utils.admin_theme.menu.MENU', SortedOrderedDict())
+    @patch('immunity_utils.admin_theme.menu.MENU', SortedOrderedDict())
     def test_register_menu_groups(self):
 
-        from openwisp_utils.admin_theme.menu import MENU
+        from immunity_utils.admin_theme.menu import MENU
 
         # create a menu
         model_link_config = self._get_model_link_config()
@@ -117,9 +117,9 @@ class TestMenuSchema(TestCase):
                 register_menu_group(position=-2, config=_config)
                 self.client.get(url)
 
-    @patch('openwisp_utils.admin_theme.menu.MENU', SortedOrderedDict())
+    @patch('immunity_utils.admin_theme.menu.MENU', SortedOrderedDict())
     def test_register_menu_subitem(self):
-        from openwisp_utils.admin_theme.menu import MENU
+        from immunity_utils.admin_theme.menu import MENU
 
         config = self._get_menu_link_config()
         register_menu_group(position=100, config=self._get_menu_group_config())

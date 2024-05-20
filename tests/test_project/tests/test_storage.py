@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.staticfiles import storage
 from django.core.management import call_command
 from django.test import TestCase, override_settings
-from openwisp_utils.tests import capture_stdout
+from immunity_utils.tests import capture_stdout
 
 
 def create_dir(*paths: str):
@@ -20,7 +20,7 @@ def create_dir(*paths: str):
 
 
 @override_settings(
-    STATICFILES_STORAGE='openwisp_utils.storage.CompressStaticFilesStorage',
+    STATICFILES_STORAGE='immunity_utils.storage.CompressStaticFilesStorage',
     STATIC_ROOT=create_dir(settings.BASE_DIR, 'test_storage_dir', 'test_static_root'),
     STATICFILES_DIRS=[
         create_dir(settings.BASE_DIR, 'test_storage_dir', 'test_staticfiles_dir')

@@ -4,7 +4,7 @@
 # DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': 'openwisp_utils.db',
+#        'NAME': 'immunity_utils.db',
 #        'USER': '',
 #        'PASSWORD': '',
 #        'HOST': '',

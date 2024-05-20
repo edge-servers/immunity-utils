@@ -18,8 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # test project
     'test_project',
-    'openwisp_utils.admin_theme',
-    'openwisp_utils.metric_collection',
+    'immunity_utils.admin_theme',
+    'immunity_utils.metric_collection',
     'django.contrib.sites',
     # admin
     'django.contrib.admin',
@@ -29,12 +29,12 @@ INSTALLED_APPS = [
     'drf_yasg',
 ]
 
-EXTENDED_APPS = ('openwisp_controller', 'django_loci')  # Just for testing purposes
+EXTENDED_APPS = ('immunity_controller', 'django_loci')  # Just for testing purposes
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'openwisp_utils.staticfiles.DependencyFinder',
+    'immunity_utils.staticfiles.DependencyFinder',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'openwisp2.urls'
+ROOT_URLCONF = 'immunity2.urls'
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -64,15 +64,15 @@ TEMPLATES = [
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'openwisp_utils.loaders.DependencyLoader',
+                'immunity_utils.loaders.DependencyLoader',
             ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'openwisp_utils.admin_theme.context_processor.menu_groups',
-                'openwisp_utils.admin_theme.context_processor.admin_theme_settings',
+                'immunity_utils.admin_theme.context_processor.menu_groups',
+                'immunity_utils.admin_theme.context_processor.admin_theme_settings',
                 'test_project.context_processors.test_theme_helper',
             ],
         },
@@ -80,9 +80,9 @@ TEMPLATES = [
 ]
 
 DATABASES = {
-    'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'openwisp_utils.db'}
+    'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'immunity_utils.db'}
 }
-TEST_RUNNER = 'openwisp_utils.metric_collection.tests.runner.MockRequestPostRunner'
+TEST_RUNNER = 'immunity_utils.metric_collection.tests.runner.MockRequestPostRunner'
 OPENWISP_ADMIN_SITE_CLASS = 'test_project.site.CustomAdminSite'
 
 SITE_ID = 1
@@ -107,7 +107,7 @@ OPENWISP_TEST_ADMIN_MENU_ITEMS = [{'model': 'test_project.Project'}]
 OPENWISP_ADMIN_THEME_LINKS = [
     {
         'type': 'text/css',
-        'href': 'admin/css/openwisp.css',
+        'href': 'admin/css/immunity.css',
         'rel': 'stylesheet',
         'media': 'all',
     },
@@ -119,7 +119,7 @@ OPENWISP_ADMIN_THEME_LINKS = [
     },  # custom css for testing menu icons
     {
         'type': 'image/x-icon',
-        'href': 'ui/openwisp/images/favicon.png',
+        'href': 'ui/immunity/images/favicon.png',
         'rel': 'icon',
     },
 ]

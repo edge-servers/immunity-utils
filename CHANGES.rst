@@ -13,7 +13,7 @@ Bugfixes
 ~~~~~~~~
 
 - Fixed **importlib-metadata** dependency, pinned it to ``<5.0``.
-  The newer versions of **importlib-metadata** breaks openwisp-utils
+  The newer versions of **importlib-metadata** breaks immunity-utils
   on **Python 3.7**.
 
 Version 1.0.3 [2022-08-03]
@@ -37,7 +37,7 @@ Bugfixes
   over-written when multiple dashboard templates
   are used
 - Fixed `empty dashboard charts not displaying total as "0"
-  <https://github.com/openwisp/openwisp-utils/issues/301>`_
+  <https://github.com/edge-servers/immunity-utils/issues/301>`_
 
 Version 1.0.1 [2022-04-07]
 --------------------------
@@ -52,23 +52,23 @@ Version 1.0.0 [2022-02-18]
 Features
 ~~~~~~~~
 
-- Added `customizable navigation menu <https://github.com/openwisp/openwisp-utils#main-navigation-menu>`_
-- Added `horizontal filters <https://github.com/openwisp/openwisp-utils#admin-filters>`_
-- Added `customizable admin dashboard <https://github.com/openwisp/openwisp-utils#openwisp-dashboard>`_
-- Added `send_email function <https://github.com/openwisp/openwisp-utils#openwisp_utilsadmin_themeemailsend_email>`_
-- Added `CompressStaticFilesStorage <https://github.com/openwisp/openwisp-utils#openwisp_utilsstoragecompressstaticfilesstorage>`_ -
+- Added `customizable navigation menu <https://github.com/edge-servers/immunity-utils#main-navigation-menu>`_
+- Added `horizontal filters <https://github.com/edge-servers/immunity-utils#admin-filters>`_
+- Added `customizable admin dashboard <https://github.com/edge-servers/immunity-utils#immunity-dashboard>`_
+- Added `send_email function <https://github.com/edge-servers/immunity-utils#immunity_utilsadmin_themeemailsend_email>`_
+- Added `CompressStaticFilesStorage <https://github.com/edge-servers/immunity-utils#immunity_utilsstoragecompressstaticfilesstorage>`_ -
   a static storage backend for Django that also compresses static files
-- Added `AssertNumQueriesSubTestMixin <https://github.com/openwisp/openwisp-utils#openwisp_utilstestsassertnumqueriessubtestmixin>`_
-- Added `HelpTextStackedInline admin class <https://github.com/openwisp/openwisp-utils#openwisp_utilsadminhelptextstackedinline>`_
-- Added `OpenwispCeleryTask <https://github.com/openwisp/openwisp-utils#openwisp-utils-tasks-openwispcelerytask>`_ - a custom celery task class
-- Added support for linting CSS and JS in `openwisp-qa-check <https://github.com/openwisp/openwisp-utils#openwisp-qa-check>`_
-- Added support for formatting CSS and JS in `openwisp-qa-format <https://github.com/openwisp/openwisp-utils#openwisp-qa-format>`_
-- Added `git pre-push hook <https://github.com/openwisp/openwisp-utils/issues/161>`_
+- Added `AssertNumQueriesSubTestMixin <https://github.com/edge-servers/immunity-utils#immunity_utilstestsassertnumqueriessubtestmixin>`_
+- Added `HelpTextStackedInline admin class <https://github.com/edge-servers/immunity-utils#immunity_utilsadminhelptextstackedinline>`_
+- Added `ImmunityCeleryTask <https://github.com/edge-servers/immunity-utils#immunity-utils-tasks-immunitycelerytask>`_ - a custom celery task class
+- Added support for linting CSS and JS in `immunity-qa-check <https://github.com/edge-servers/immunity-utils#immunity-qa-check>`_
+- Added support for formatting CSS and JS in `immunity-qa-format <https://github.com/edge-servers/immunity-utils#immunity-qa-format>`_
+- Added `git pre-push hook <https://github.com/edge-servers/immunity-utils/issues/161>`_
 
 Changes
 ~~~~~~~
 
-- `Updated OpenWISP's admin theme <https://medium.com/@niteshsinha1707/new-navigation-menu-and-ui-ux-improvements-project-report-a94c37514b7d>`__
+- `Updated Immunity's admin theme <https://medium.com/@niteshsinha1707/new-navigation-menu-and-ui-ux-improvements-project-report-a94c37514b7d>`__
 
 **Dependencies**:
 
@@ -82,7 +82,7 @@ Changes
 Bugfixes
 ~~~~~~~~
 
-- Fixed `checkcommit` failing for `trailing period (.) after closing keyword <https://github.com/openwisp/openwisp-utils/issues/187>`_
+- Fixed `checkcommit` failing for `trailing period (.) after closing keyword <https://github.com/edge-servers/immunity-utils/issues/187>`_
 
 Version 0.7.5 [2021-06-01]
 --------------------------
@@ -111,7 +111,7 @@ Version 0.7.2 [2020-12-11]
 Version 0.7.1 [2020-11-18]
 --------------------------
 
-- [fix] Fixed bug in``openwisp_utils.admin.UUIDAdmin`` which caused the removal of all
+- [fix] Fixed bug in``immunity_utils.admin.UUIDAdmin`` which caused the removal of all
   the ``readonly_fields`` from the admin add page, now only the ``uuid`` field is removed
 - [change] Changed commit check to allow commit messages from `Dependabot <https://dependabot.com/>`_
 
@@ -121,20 +121,20 @@ Version 0.7.0 [2020-11-13]
 Features
 ~~~~~~~~
 
-- [qa] Added a `ReStructuredText syntax check (checkrst) <https://github.com/openwisp/openwisp-utils#checkrst>`_
-  to ``openwisp-qa-check``, which allows to ensure ``README.rst`` and other top level rst files
+- [qa] Added a `ReStructuredText syntax check (checkrst) <https://github.com/edge-servers/immunity-utils#checkrst>`_
+  to ``immunity-qa-check``, which allows to ensure ``README.rst`` and other top level rst files
   do not contain syntax errors
-- [utils] Added `register_menu_items <https://github.com/openwisp/openwisp-utils#openwisp-utils-utils-register-menu-items>`_
+- [utils] Added `register_menu_items <https://github.com/edge-servers/immunity-utils#immunity-utils-utils-register-menu-items>`_
   to easily register menu items
 - [tests] Added test utilities to capture output (eg: to make assertions on it):
-  `capture_stdout <https://github.com/openwisp/openwisp-utils#openwisp-utils-tests-capture-stdout>`_,
-  `capture_stderr <https://github.com/openwisp/openwisp-utils#openwisp_utilstestscapture_stderr>`_,
-  `capture_any_output <https://github.com/openwisp/openwisp-utils#openwisp_utilstestscapture_any_output>`_
+  `capture_stdout <https://github.com/edge-servers/immunity-utils#immunity-utils-tests-capture-stdout>`_,
+  `capture_stderr <https://github.com/edge-servers/immunity-utils#immunity_utilstestscapture_stderr>`_,
+  `capture_any_output <https://github.com/edge-servers/immunity-utils#immunity_utilstestscapture_any_output>`_
 
 Changes
 ~~~~~~~
 
-- [utils] Removed deprecated openwisp-utils-qa-checks
+- [utils] Removed deprecated immunity-utils-qa-checks
 
 Bugfixes
 ~~~~~~~~
@@ -207,7 +207,7 @@ Version 0.5.0 [2020-06-02]
 - [docs] Re-ordered, added information and improved existing docs
 - [update] Added support for flake8 flake8<=3.9
 - [change] Renamed test_api to api for consistency
-- [change] Rename openwisp-utils-qa-checks to openwisp-qa-check
+- [change] Rename immunity-utils-qa-checks to immunity-qa-check
 - [change][api] Renamed /api/v1/swagger/ to /api/v1/docs/
 - [improvement] Moved to importlib for Dependency loader & staticfiles for importing files
 - [improvement] Added "Related to #<issue>" for commit-check
@@ -227,7 +227,7 @@ Version 0.4.4 [2020-02-28]
 
 - [theme] Made it easier to customize theme
   (``OPENWISP_ADMIN_THEME_LINKS``,``OPENWISP_ADMIN_THEME_JS``, and
-  ``openwisp_utils.admin_theme.context_processor.admin_theme_settings``)
+  ``immunity_utils.admin_theme.context_processor.admin_theme_settings``)
 
 Version 0.4.3 [2020-02-26]
 --------------------------
@@ -245,10 +245,10 @@ Version 0.4.2 [2020-01-25]
 Version 0.4.1 [2020-01-20]
 --------------------------
 
-- Added utilities commonly used in other OpenWISP modules:
+- Added utilities commonly used in other Immunity modules:
   ``UUIDAdmin``, ``KeyField``, ``ReceiveUrlAdmin``, ``get_random_key``
 - Fixed a minor issue regarding a new line ``\n`` not being formatted properly
-  in ``openwisp-utils-qa-check``
+  in ``immunity-utils-qa-check``
 
 Version 0.4.0 [2020-01-13]
 --------------------------
@@ -266,9 +266,9 @@ Version 0.3.1 [2020-01-07]
 
 - [feature] Added configurable ``AdminSite`` class and ``OPENWISP_ADMIN_SITE_CLASS``
 - [theme] Adapted theme to django 2.2
-- [qa] openwisp-utils-qa-checks now runs all checks before failing
-- [qa] Added support for multiple migration name check in openwisp-utils-qa-checks
-- [qa] Added pending migrations check (``runcheckpendingmigrations``) to openwisp-utils-qa-checks
+- [qa] immunity-utils-qa-checks now runs all checks before failing
+- [qa] Added support for multiple migration name check in immunity-utils-qa-checks
+- [qa] Added pending migrations check (``runcheckpendingmigrations``) to immunity-utils-qa-checks
 
 Version 0.3.0 [2019-12-10]
 --------------------------
@@ -277,38 +277,38 @@ Version 0.3.0 [2019-12-10]
 - Added ``AlwaysHasChangedMixin``
 - Added ``UUIDModel``
 - Moved multitenancy features to
-  `openwisp-users <https://github.com/openwisp/openwisp-users>`_
+  `immunity-users <https://github.com/edge-servers/immunity-users>`_
 - [qa] Added ``checkendline``, ``checkmigrations``, ``checkcommit``,
-  later integrated in ``openwisp-utils-qa-checks`` (corrected)
+  later integrated in ``immunity-utils-qa-checks`` (corrected)
 - Added navigation menu
 - Added configurable settings for admin headings
 
 Version 0.2.2 [2018-12-02]
 --------------------------
 
-- `#20 <https://github.com/openwisp/openwisp-utils/issues/20>`_:
+- `#20 <https://github.com/edge-servers/immunity-utils/issues/20>`_:
   [qa] Added ``checkcommit`` QA check (thanks to `@ppabcd <https://github.com/ppabcd>`_)
 
 Version 0.2.1 [2018-11-04]
 --------------------------
 
-- `dc977d2 <https://github.com/openwisp/openwisp-utils/commit/dc977d2>`_:
+- `dc977d2 <https://github.com/edge-servers/immunity-utils/commit/dc977d2>`_:
   [multitenancy] Avoid failure if org field not present
-- `#13 <https://github.com/openwisp/openwisp-utils/pull/13>`_:
+- `#13 <https://github.com/edge-servers/immunity-utils/pull/13>`_:
   [DRF] Added ``BaseSerializer``
-- `#16 <https://github.com/openwisp/openwisp-utils/pull/16>`_:
+- `#16 <https://github.com/edge-servers/immunity-utils/pull/16>`_:
   [qa] Added migration filename check
-- `babbd74 <https://github.com/openwisp/openwisp-utils/commit/babbd74>`_:
+- `babbd74 <https://github.com/edge-servers/immunity-utils/commit/babbd74>`_:
   [multitenancy] Added ``MultitenantAdminMixin.multitenant_parent``
-- `6d45df5 <https://github.com/openwisp/openwisp-utils/commit/6d45df5>`_:
+- `6d45df5 <https://github.com/edge-servers/immunity-utils/commit/6d45df5>`_:
   [qa] Pin down ``flake8`` and ``isort`` in ``extra_requires['qa']``
 
 Version 0.2.0 [2018-02-06]
 --------------------------
 
-- `#10 <https://github.com/openwisp/openwisp-utils/pull/10>`_:
+- `#10 <https://github.com/edge-servers/immunity-utils/pull/10>`_:
   [qa] add django 2.0 compatibility
-- `d742d4 <https://github.com/openwisp/openwisp-utils/commit/d742d4>`_:
+- `d742d4 <https://github.com/edge-servers/immunity-utils/commit/d742d4>`_:
   [version] Improved get_version to follow PEP440
 
 Version 0.1.2 [2017-07-10]
@@ -320,7 +320,7 @@ Version 0.1.1 [2017-06-28]
 --------------------------
 
 - renamed ``MultitenantObjectFilter`` to ``MultitenantRelatedOrgFilter``
-- made *openwisp-users* optional
+- made *immunity-users* optional
 
 Version 0.1.0 [2017-06-28]
 --------------------------

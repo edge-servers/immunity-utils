@@ -3,13 +3,13 @@ from os import path
 from unittest.mock import Mock, patch
 
 from django.test import TestCase
-from openwisp_utils.qa import (
+from immunity_utils.qa import (
     check_commit_message,
     check_migration_name,
     check_rst_files,
     read_rst_file,
 )
-from openwisp_utils.tests import capture_stderr, capture_stdout
+from immunity_utils.tests import capture_stderr, capture_stdout
 
 MIGRATIONS_DIR = path.join(
     path.dirname(path.dirname(path.abspath(__file__))), 'migrations'
@@ -122,7 +122,7 @@ class TestQa(TestCase):
                 'commitcheck',
                 '--quiet',
                 '--message',
-                '[fix] Fixed extensibility of openwisp-users and added sample_users test app #377\n\n'
+                '[fix] Fixed extensibility of immunity-users and added sample_users test app #377\n\n'
                 'Closes #377\r\n\r\nCo-authored-by: Ajay Tripathi <ajay39in@gmail.com>',
             ],
             [
