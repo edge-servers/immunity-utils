@@ -26,6 +26,7 @@ setup(
     author_email='rohith.asrk@gmail.com',
     description='Immunity 2 Utilities',
     long_description=open('README.rst').read(),
+    long_description_content_type='text/markdown',
     url='http://immunity.org',
     download_url='https://github.com/edge-servers/immunity-utils/releases',
     platforms=['Platform Independent'],
