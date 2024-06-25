@@ -20,14 +20,17 @@ def menu_groups(request):
         'immunity_menu_items': menu,
         'immunity_menu_groups': menu_groups,
         'show_userlinks_block': getattr(
-            settings, 'OPENWISP_ADMIN_SHOW_USERLINKS_BLOCK', False
+            settings, 'IMMUNITY
+_ADMIN_SHOW_USERLINKS_BLOCK', False
         ),
     }
 
 
 def build_menu(request):
-    default_items = getattr(settings, 'OPENWISP_DEFAULT_ADMIN_MENU_ITEMS', [])
-    custom_items = getattr(settings, 'OPENWISP_ADMIN_MENU_ITEMS', [])
+    default_items = getattr(settings, 'IMMUNITY
+_DEFAULT_ADMIN_MENU_ITEMS', [])
+    custom_items = getattr(settings, 'IMMUNITY
+_ADMIN_MENU_ITEMS', [])
     items = custom_items or default_items
     menu = []
     # loop over each item to build the menu
@@ -48,8 +51,10 @@ def build_menu(request):
 
 def admin_theme_settings(request):
     return {
-        'OPENWISP_ADMIN_THEME_LINKS': theme.THEME_LINKS,
-        'OPENWISP_ADMIN_THEME_JS': theme.THEME_JS,
+        'IMMUNITY
+_ADMIN_THEME_LINKS': theme.THEME_LINKS,
+        'IMMUNITY
+_ADMIN_THEME_JS': theme.THEME_JS,
     }
 
 

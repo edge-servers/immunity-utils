@@ -31,7 +31,8 @@ class TimeLoggingTestResult(TextTestResult):
 
     def _get_slow_test_threshold(self):
         slow_test_threshold = getattr(
-            settings, 'OPENWISP_SLOW_TEST_THRESHOLD', [0.3, 1]
+            settings, 'IMMUNITY
+_SLOW_TEST_THRESHOLD', [0.3, 1]
         )
         assert isinstance(slow_test_threshold, list)
         assert len(slow_test_threshold) == 2

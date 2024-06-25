@@ -2,8 +2,10 @@ from django.core.exceptions import ImproperlyConfigured
 
 from . import settings as app_settings
 
-THEME_LINKS = app_settings.OPENWISP_ADMIN_THEME_LINKS.copy()
-THEME_JS = app_settings.OPENWISP_ADMIN_THEME_JS.copy()
+THEME_LINKS = app_settings.IMMUNITY
+_ADMIN_THEME_LINKS.copy()
+THEME_JS = app_settings.IMMUNITY
+_ADMIN_THEME_JS.copy()
 
 
 def register_theme_link(links):
@@ -15,7 +17,8 @@ def register_theme_link(links):
     for link in links:
         if link in THEME_LINKS:
             raise ImproperlyConfigured(
-                f'{link["href"]} is already present in OPENWISP_ADMIN_THEME_LINKS'
+                f'{link["href"]} is already present in IMMUNITY
+_ADMIN_THEME_LINKS'
             )
         THEME_LINKS.append(link)
 
@@ -31,7 +34,8 @@ def unregister_theme_link(links):
             THEME_LINKS.remove(link)
         except ValueError:
             raise ImproperlyConfigured(
-                f'{link["href"]} was not added to OPENWISP_ADMIN_THEME_LINKS'
+                f'{link["href"]} was not added to IMMUNITY
+_ADMIN_THEME_LINKS'
             )
 
 
@@ -44,7 +48,8 @@ def register_theme_js(jss):
     for js in jss:
         if js in THEME_JS:
             raise ImproperlyConfigured(
-                f'{js} is already present in OPENWISP_ADMIN_THEME_JS'
+                f'{js} is already present in IMMUNITY
+_ADMIN_THEME_JS'
             )
         THEME_JS.append(js)
 
@@ -59,4 +64,5 @@ def unregister_theme_js(jss):
         try:
             THEME_JS.remove(js)
         except ValueError:
-            raise ImproperlyConfigured(f'{js} was not added to OPENWISP_ADMIN_THEME_JS')
+            raise ImproperlyConfigured(f'{js} was not added to IMMUNITY
+_ADMIN_THEME_JS')

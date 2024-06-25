@@ -82,7 +82,8 @@ class TestConsent(TestCase):
     @patch('test_project.apps.TestAppConfig.register_dashboard_charts')
     @patch('test_project.apps.TestAppConfig.register_menu_groups')
     @patch(
-        'immunity_utils.admin_theme.apps.OpenWispAdminThemeConfig.register_menu_groups'
+        'immunity_utils.admin_theme.apps.Immunity
+AdminThemeConfig.register_menu_groups'
     )
     @modify_settings(INSTALLED_APPS={'remove': ['immunity_utils.metric_collection']})
     def test_info_message_app_not_installed(self, *args):

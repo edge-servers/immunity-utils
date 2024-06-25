@@ -53,7 +53,8 @@ class TestUtils(TestCase):
         }
         self.assertDictEqual(deep_merge_dicts(dict1, dict2), merged)
 
-    @override_settings(OPENWISP_SLOW_TEST_THRESHOLD=[0.0, 0.0])
+    @override_settings(IMMUNITY
+_SLOW_TEST_THRESHOLD=[0.0, 0.0])
     @capture_any_output()
     def test_time_logging_runner(self, stdout, stderr):
         runner = TimeLoggingTestRunner()

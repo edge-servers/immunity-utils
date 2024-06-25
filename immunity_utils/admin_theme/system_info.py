@@ -5,7 +5,8 @@ import pkg_resources
 from django.conf import settings
 from django.utils.module_loading import import_string
 
-EXTRA_OPENWISP_PACKAGES = ['netdiff', 'netjsonconfig']
+EXTRA_IMMUNITY
+_PACKAGES = ['netdiff', 'netjsonconfig']
 
 
 def get_installed_immunity_packages():
@@ -13,7 +14,8 @@ def get_installed_immunity_packages():
     return {
         dist.key: dist.version
         for dist in dists
-        if dist.key.startswith('immunity') or dist.key in EXTRA_OPENWISP_PACKAGES
+        if dist.key.startswith('immunity') or dist.key in EXTRA_IMMUNITY
+_PACKAGES
     }
 
 
@@ -37,7 +39,8 @@ def get_enabled_immunity_modules():
     installed_packages = get_installed_immunity_packages()
     extra_packages = {}
     for package, version in installed_packages.items():
-        if package in EXTRA_OPENWISP_PACKAGES:
+        if package in EXTRA_IMMUNITY
+_PACKAGES:
             extra_packages[package] = version
             continue
         package_name = package.replace('-', '_')

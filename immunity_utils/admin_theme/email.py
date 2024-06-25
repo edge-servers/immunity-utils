@@ -21,16 +21,19 @@ def send_email(subject, body_text, body_html, recipients, extra_context={}, **kw
         **kwargs,
     )
 
-    if app_settings.OPENWISP_HTML_EMAIL and body_html:
+    if app_settings.IMMUNITY
+_HTML_EMAIL and body_html:
         context = dict(
             subject=subject,
             message=body_html,
-            logo_url=app_settings.OPENWISP_EMAIL_LOGO,
+            logo_url=app_settings.IMMUNITY
+_EMAIL_LOGO,
         )
         context.update(extra_context)
 
         html_message = render_to_string(
-            app_settings.OPENWISP_EMAIL_TEMPLATE,
+            app_settings.IMMUNITY
+_EMAIL_TEMPLATE,
             context=context,
         )
         mail.attach_alternative(html_message, 'text/html')

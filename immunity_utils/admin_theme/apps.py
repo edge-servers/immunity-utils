@@ -11,8 +11,10 @@ from .menu import register_menu_group
 def _staticfy(value):
     """
     Allows to keep backward compatibility with instances of Immunity which
-    were using the previous implementation of OPENWISP_ADMIN_THEME_LINKS
-    and OPENWISP_ADMIN_THEME_JS which didn't automatically pre-process
+    were using the previous implementation of IMMUNITY
+_ADMIN_THEME_LINKS
+    and IMMUNITY
+_ADMIN_THEME_JS which didn't automatically pre-process
     those lists of static files with django.templatetags.static.static()
     and hence were not configured to allow those files to be found
     by the staticfile loaders, if static() raises ValueError, we assume
@@ -29,7 +31,8 @@ def _staticfy(value):
         return value
 
 
-class OpenWispAdminThemeConfig(AppConfig):
+class Immunity
+AdminThemeConfig(AppConfig):
     app_label = 'immunity_admin'
     name = 'immunity_utils.admin_theme'
 

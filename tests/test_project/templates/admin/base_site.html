@@ -3,7 +3,8 @@
 
 {% block extrastyle %}
   {{ block.super }}
-  {% if OPENWISP_TEST_MODE %}
+  {% if IMMUNITY
+_TEST_MODE %}
    <style>
     *, *:before, *:after {
       transition:none!important;

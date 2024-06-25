@@ -198,7 +198,8 @@ Version 0.5.0 [2020-06-02]
 - [add] default_or_test function
 - [add] Added deep_merge_dicts function
 - [add] formatter: black<=19.10b0
-- [add] OPENWISP_API_INFO setting
+- [add] IMMUNITY
+_API_INFO setting
 - [add][api] Require authentication for API docs if DEBUG is False
 - [add][api] Implement ScopedRateThrottle by default
 - [add][api] Introduced api.ApiAppConfig
@@ -226,7 +227,9 @@ Version 0.4.4 [2020-02-28]
 --------------------------
 
 - [theme] Made it easier to customize theme
-  (``OPENWISP_ADMIN_THEME_LINKS``,``OPENWISP_ADMIN_THEME_JS``, and
+  (``IMMUNITY
+_ADMIN_THEME_LINKS``,``IMMUNITY
+_ADMIN_THEME_JS``, and
   ``immunity_utils.admin_theme.context_processor.admin_theme_settings``)
 
 Version 0.4.3 [2020-02-26]
@@ -259,12 +262,14 @@ Version 0.4.0 [2020-01-13]
 Version 0.3.2 [2020-01-09]
 --------------------------
 
-- [change] Simplified implementation and usage of ``OPENWISP_ADMIN_SITE_CLASS``
+- [change] Simplified implementation and usage of ``IMMUNITY
+_ADMIN_SITE_CLASS``
 
 Version 0.3.1 [2020-01-07]
 --------------------------
 
-- [feature] Added configurable ``AdminSite`` class and ``OPENWISP_ADMIN_SITE_CLASS``
+- [feature] Added configurable ``AdminSite`` class and ``IMMUNITY
+_ADMIN_SITE_CLASS``
 - [theme] Adapted theme to django 2.2
 - [qa] immunity-utils-qa-checks now runs all checks before failing
 - [qa] Added support for multiple migration name check in immunity-utils-qa-checks

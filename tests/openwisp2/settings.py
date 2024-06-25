@@ -83,7 +83,8 @@ DATABASES = {
     'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'immunity_utils.db'}
 }
 TEST_RUNNER = 'immunity_utils.metric_collection.tests.runner.MockRequestPostRunner'
-OPENWISP_ADMIN_SITE_CLASS = 'test_project.site.CustomAdminSite'
+IMMUNITY
+_ADMIN_SITE_CLASS = 'test_project.site.CustomAdminSite'
 
 SITE_ID = 1
 EMAIL_PORT = '1025'
@@ -102,9 +103,11 @@ REST_FRAMEWORK = {
 }
 
 CACHES = {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'}}
-OPENWISP_TEST_ADMIN_MENU_ITEMS = [{'model': 'test_project.Project'}]
+IMMUNITY
+_TEST_ADMIN_MENU_ITEMS = [{'model': 'test_project.Project'}]
 
-OPENWISP_ADMIN_THEME_LINKS = [
+IMMUNITY
+_ADMIN_THEME_LINKS = [
     {
         'type': 'text/css',
         'href': 'admin/css/immunity.css',
@@ -123,7 +126,8 @@ OPENWISP_ADMIN_THEME_LINKS = [
         'rel': 'icon',
     },
 ]
-OPENWISP_ADMIN_THEME_JS = ['dummy.js']
+IMMUNITY
+_ADMIN_THEME_JS = ['dummy.js']
 
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_EAGER_PROPAGATES = True

@@ -13,7 +13,8 @@ from urllib3.response import HTTPResponse
 from .. import models, tasks
 from ..models import Consent, ImmunityVersion
 from . import (
-    _ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+    _ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     _HEARTBEAT_METRICS,
     _MODULES_UPGRADE_EXPECTED_METRICS,
     _NEW_INSTALLATION_METRICS,
@@ -30,7 +31,8 @@ class TestImmunityVersion(TestCase):
         ImmunityVersion.objects.update(
             module_version={
                 'Immunity Version': '23.0.0a',
-                **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+                **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
             },
             created=datetime.strptime(
                 '2023-11-01 00:00:00', '%Y-%m-%d %H:%M:%S'
@@ -60,7 +62,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -77,7 +80,8 @@ class TestImmunityVersion(TestCase):
         version = ImmunityVersion.objects.first()
         expected_module_version = {
             'Immunity Version': '23.0.0a',
-            **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+            **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
         }
         self.assertEqual(version.module_version, expected_module_version)
 
@@ -85,7 +89,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -102,7 +107,8 @@ class TestImmunityVersion(TestCase):
         version = ImmunityVersion.objects.first()
         expected_module_version = {
             'Immunity Version': '23.0.0a',
-            **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+            **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
         }
         self.assertEqual(version.module_version, expected_module_version)
 
@@ -110,7 +116,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -132,7 +139,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -144,7 +152,8 @@ class TestImmunityVersion(TestCase):
     def test_heartbeat(self, mocked_post, *args):
         expected_module_version = {
             'Immunity Version': '23.0.0a',
-            **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+            **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
             **_OS_DETAILS_RETURN_VALUE,
         }
         ImmunityVersion.objects.update(module_version=expected_module_version)
@@ -159,7 +168,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -184,7 +194,8 @@ class TestImmunityVersion(TestCase):
         version = ImmunityVersion.objects.first()
         expected_module_version = {
             'Immunity Version': '23.0.0a',
-            **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+            **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
         }
         self.assertEqual(version.module_version, expected_module_version)
 
@@ -192,7 +203,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,
@@ -217,7 +229,8 @@ class TestImmunityVersion(TestCase):
         version = ImmunityVersion.objects.first()
         expected_module_version = {
             'Immunity Version': '23.0.0a',
-            **_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+            **_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
         }
         self.assertEqual(version.module_version, expected_module_version)
 
@@ -225,7 +238,8 @@ class TestImmunityVersion(TestCase):
     @patch.object(
         models,
         'get_enabled_immunity_modules',
-        return_value=_ENABLED_OPENWISP_MODULES_RETURN_VALUE,
+        return_value=_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE,
     )
     @patch.object(
         models,

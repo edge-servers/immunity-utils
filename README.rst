@@ -183,8 +183,10 @@ Supplying custom CSS and JS for the admin theme
 
 Add ``immunity_utils.admin_theme.context_processor.admin_theme_settings`` to
 template ``context_processors`` in ``settings.py`` as shown below.
-This will allow to set `OPENWISP_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`_
-and `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_js>`__ settings
+This will allow to set `IMMUNITY
+_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`_
+and `IMMUNITY
+_ADMIN_THEME_JS <#immunity_admin_theme_js>`__ settings
 to provide CSS and JS files to customise admin theme.
 
 .. code-block:: python
@@ -219,7 +221,8 @@ Extend admin theme programmatically
 ``immunity_utils.admin_theme.theme.register_theme_link``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Allows adding items to `OPENWISP_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__.
+Allows adding items to `IMMUNITY
+_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__.
 
 This function is meant to be used by third party apps or Immunity modules which
 aim to extend the core look and feel of the Immunity theme (eg: add new menu icons).
@@ -234,13 +237,15 @@ aim to extend the core look and feel of the Immunity theme (eg: add new menu ico
 | **Parameter**      | **Description**                                              |
 +--------------------+--------------------------------------------------------------+
 | ``links``          | (``list``) List of *link* items to be added to               |
-|                    | `OPENWISP_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__ |
+|                    | `IMMUNITY
+_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__ |
 +--------------------+--------------------------------------------------------------+
 
 ``immunity_utils.admin_theme.theme.unregister_theme_link``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Allows removing items from `OPENWISP_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__.
+Allows removing items from `IMMUNITY
+_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__.
 
 This function is meant to be used by third party apps or Immunity modules which
 aim additional functionalities to UI of Immunity (eg: adding a support chatbot).
@@ -255,13 +260,15 @@ aim additional functionalities to UI of Immunity (eg: adding a support chatbot).
 | **Parameter**      | **Description**                                              |
 +--------------------+--------------------------------------------------------------+
 | ``links``          | (``list``) List of *link* items to be removed from           |
-|                    | `OPENWISP_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__ |
+|                    | `IMMUNITY
+_ADMIN_THEME_LINKS <#immunity_admin_theme_links>`__ |
 +--------------------+--------------------------------------------------------------+
 
 ``immunity_utils.admin_theme.theme.register_theme_js``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Allows adding items to `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_JS>`__.
+Allows adding items to `IMMUNITY
+_ADMIN_THEME_JS <#immunity_admin_theme_JS>`__.
 
 **Syntax:**
 
@@ -273,13 +280,15 @@ Allows adding items to `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_JS>`__.
 | **Parameter**      | **Description**                                               |
 +--------------------+---------------------------------------------------------------+
 | ``js``             | (``list``) List of relative path of *js* files to be added to |
-|                    | `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_js>`__        |
+|                    | `IMMUNITY
+_ADMIN_THEME_JS <#immunity_admin_theme_js>`__        |
 +--------------------+---------------------------------------------------------------+
 
 ``immunity_utils.admin_theme.theme.unregister_theme_js``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Allows removing items from `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_JS>`__.
+Allows removing items from `IMMUNITY
+_ADMIN_THEME_JS <#immunity_admin_theme_JS>`__.
 
 **Syntax:**
 
@@ -291,7 +300,8 @@ Allows removing items from `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_JS>`_
 | **Parameter**      | **Description**                                                    |
 +--------------------+--------------------------------------------------------------------+
 | ``js``             | (``list``) List of relative path of *js* files to be removed from  |
-|                    | `OPENWISP_ADMIN_THEME_JS <#immunity_admin_theme_js>`__             |
+|                    | `IMMUNITY
+_ADMIN_THEME_JS <#immunity_admin_theme_js>`__             |
 +--------------------+--------------------------------------------------------------------+
 
 Immunity Dashboard
@@ -1328,8 +1338,10 @@ incurs memory space overhead.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A custom celery task class that sets hard and soft time limits of celery tasks
-using `OPENWISP_CELERY_HARD_TIME_LIMIT <#immunity_celery_hard_time_limit>`_
-and `OPENWISP_CELERY_SOFT_TIME_LIMIT <#immunity_celery_soft_time_limit>`_
+using `IMMUNITY
+_CELERY_HARD_TIME_LIMIT <#immunity_celery_hard_time_limit>`_
+and `IMMUNITY
+_CELERY_SOFT_TIME_LIMIT <#immunity_celery_soft_time_limit>`_
 settings respectively.
 
 Usage:
@@ -1410,7 +1422,8 @@ Storage utilities
 
 A static storage backend for compression inheriting from `django-compress-staticfiles's <https://pypi.org/project/django-compress-staticfiles/>`_ ``CompressStaticFilesStorage`` class.
 
-Adds support for excluding file types using `OPENWISP_STATICFILES_VERSIONED_EXCLUDE <#immunity_staticfiles_versioned_exclude>`_ setting.
+Adds support for excluding file types using `IMMUNITY
+_STATICFILES_VERSIONED_EXCLUDE <#immunity_staticfiles_versioned_exclude>`_ setting.
 
 To use point ``STATICFILES_STORAGE`` to ``immunity_utils.storage.CompressStaticFilesStorage`` in ``settings.py``.
 
@@ -1425,11 +1438,14 @@ Admin Theme utilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function allows sending email in both plain text and HTML version (using the template
-and logo that can be customised using `OPENWISP_EMAIL_TEMPLATE <#immunity_email_template>`_
-and `OPENWISP_EMAIL_LOGO <#immunity_email_logo>`_ respectively).
+and logo that can be customised using `IMMUNITY
+_EMAIL_TEMPLATE <#immunity_email_template>`_
+and `IMMUNITY
+_EMAIL_LOGO <#immunity_email_logo>`_ respectively).
 
 In case the HTML version if not needed it may be disabled by
-setting `OPENWISP_HTML_EMAIL <#immunity_html_email>`_ to ``False``.
+setting `IMMUNITY
+_HTML_EMAIL <#immunity_html_email>`_ to ``False``.
 
 **Syntax:**
 
@@ -1490,7 +1506,8 @@ Here's how to easily do it:
         verbose_name = _('My Immunity Module')
 
         # assumes API is enabled by default
-        API_ENABLED = getattr(settings, 'MY_OPENWISP_MODULE_API_ENABLED', True)
+        API_ENABLED = getattr(settings, 'MY_IMMUNITY
+_MODULE_API_ENABLED', True)
         # set throttling rates for your module here
         REST_FRAMEWORK_SETTINGS = {
             'DEFAULT_THROTTLE_RATES': {'my_module': '400/hour'},
@@ -1535,7 +1552,8 @@ and logs the time spent by each test, making it easier to spot slow tests by hig
 time taken by it in yellow (time shall be highlighted in red if it crosses the second threshold).
 
 By default tests are considered slow if they take more than 0.3 seconds but you can control
-this with `OPENWISP_SLOW_TEST_THRESHOLD <#immunity_slow_test_threshold>`_.
+this with `IMMUNITY
+_SLOW_TEST_THRESHOLD <#immunity_slow_test_threshold>`_.
 
 In order to switch to this test runner you have set the following in your `settings.py`:
 
@@ -1858,35 +1876,40 @@ Checks the syntax of all ReStructuredText files to ensure they can be published 
 Settings
 --------
 
-``OPENWISP_ADMIN_SITE_CLASS``
+``IMMUNITY
+_ADMIN_SITE_CLASS``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``immunity_utils.admin_theme.admin.ImmunityAdminSite``
 
 If you need to use a customized admin site class, you can use this setting.
 
-``OPENWISP_ADMIN_SITE_TITLE``
+``IMMUNITY
+_ADMIN_SITE_TITLE``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``Immunity Admin``
 
 Title value used in the ``<title>`` HTML tag of the admin site.
 
-``OPENWISP_ADMIN_SITE_HEADER``
+``IMMUNITY
+_ADMIN_SITE_HEADER``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``Immunity``
 
 Heading text used in the main ``<h1>`` HTML tag (the logo) of the admin site.
 
-``OPENWISP_ADMIN_INDEX_TITLE``
+``IMMUNITY
+_ADMIN_INDEX_TITLE``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``Network administration``
 
 Title shown to users in the index page of the admin site.
 
-``OPENWISP_ADMIN_DASHBOARD_ENABLED``
+``IMMUNITY
+_ADMIN_DASHBOARD_ENABLED``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``True``
@@ -1895,7 +1918,8 @@ When ``True``, enables the `Immunity Dashboard <#immunity-dashboard>`_.
 Upon login, the user will be greeted with the dashboard instead of the default
 Django admin index page.
 
-``OPENWISP_ADMIN_THEME_LINKS``
+``IMMUNITY
+_ADMIN_THEME_LINKS``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``[]``
@@ -1916,13 +1940,15 @@ Example usage:
 
 .. code-block:: python
 
-    OPENWISP_ADMIN_THEME_LINKS = [
+    IMMUNITY
+_ADMIN_THEME_LINKS = [
         {'type': 'text/css', 'href': '/static/admin/css/immunity.css', 'rel': 'stylesheet', 'media': 'all'},
         {'type': 'text/css', 'href': '/static/admin/css/custom-theme.css', 'rel': 'stylesheet', 'media': 'all'},
         {'type': 'image/x-icon', 'href': '/static/favicon.png', 'rel': 'icon'}
     ]
 
-``OPENWISP_ADMIN_THEME_JS``
+``IMMUNITY
+_ADMIN_THEME_JS``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``[]``
@@ -1933,11 +1959,13 @@ Example usage:
 
 .. code-block:: python
 
-    OPENWISP_ADMIN_THEME_JS = [
+    IMMUNITY
+_ADMIN_THEME_JS = [
         '/static/custom-admin-theme.js',
     ]
 
-``OPENWISP_ADMIN_SHOW_USERLINKS_BLOCK``
+``IMMUNITY
+_ADMIN_SHOW_USERLINKS_BLOCK``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``False``
@@ -1948,7 +1976,8 @@ i.e. (USER NAME/ VIEW SITE / CHANGE PASSWORD / LOG OUT).
 
 These links are already shown in the main navigation menu and for this reason are hidden by default.
 
-``OPENWISP_API_DOCS``
+``IMMUNITY
+_API_DOCS``
 ^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``True``
@@ -1966,7 +1995,8 @@ You also need to add the following url to your project urls.py:
         url(r'^api/v1/', include('immunity_utils.api.urls')),
     ]
 
-``OPENWISP_API_INFO``
+``IMMUNITY
+_API_INFO``
 ^^^^^^^^^^^^^^^^^^^^^
 
 **default**:
@@ -1980,12 +2010,14 @@ You also need to add the following url to your project urls.py:
     }
 
 Define OpenAPI general information.
-NOTE: This setting requires ``OPENWISP_API_DOCS = True`` to take effect.
+NOTE: This setting requires ``IMMUNITY
+_API_DOCS = True`` to take effect.
 
 For more information about optional parameters check the
 `drf-yasg documentation <https://drf-yasg.readthedocs.io/en/stable/readme.html#quickstart>`_.
 
-``OPENWISP_SLOW_TEST_THRESHOLD``
+``IMMUNITY
+_SLOW_TEST_THRESHOLD``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``[0.3, 1]`` (seconds)
@@ -1993,7 +2025,8 @@ For more information about optional parameters check the
 It can be used to change the thresholds used by `TimeLoggingTestRunner <#immunity_utilsteststimeloggingtestrunner>`_
 to detect slow tests (0.3s by default) and highlight the slowest ones (1s by default) amongst them.
 
-``OPENWISP_STATICFILES_VERSIONED_EXCLUDE``
+``IMMUNITY
+_STATICFILES_VERSIONED_EXCLUDE``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **default**: ``['leaflet/*/*.png']``
@@ -2006,11 +2039,13 @@ Example usage:
 
 .. code-block:: python
 
-    OPENWISP_STATICFILES_VERSIONED_EXCLUDE = [
+    IMMUNITY
+_STATICFILES_VERSIONED_EXCLUDE = [
         '*png',
     ]
 
-``OPENWISP_HTML_EMAIL``
+``IMMUNITY
+_HTML_EMAIL``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+----------+
@@ -2022,7 +2057,8 @@ Example usage:
 If ``True``, an HTML themed version of the email can be sent using
 the `send_email <#immunity_utilsadmin_themeemailsend_email>`_ function.
 
-``OPENWISP_EMAIL_TEMPLATE``
+``IMMUNITY
+_EMAIL_TEMPLATE``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+----------------------------------------+
@@ -2061,7 +2097,8 @@ See `email_template.html <https://github.com/edge-servers/immunity-utils/blob/
 master/immunity_utils/admin_theme/templates/immunity_utils/email_template.html>`_
 for reference implementation.
 
-``OPENWISP_EMAIL_LOGO``
+``IMMUNITY
+_EMAIL_LOGO``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+-------------------------------------------------------------------------------------+
@@ -2078,7 +2115,8 @@ publicly accessible from the internet. Otherwise, the logo may not be displayed 
 Please also note that SVG images do not get processed by some email clients
 like Gmail so it is recommended to use PNG images.
 
-``OPENWISP_CELERY_SOFT_TIME_LIMIT``
+``IMMUNITY
+_CELERY_SOFT_TIME_LIMIT``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+---------------------+
@@ -2090,7 +2128,8 @@ like Gmail so it is recommended to use PNG images.
 Sets the soft time limit for celery tasks using
 `ImmunityCeleryTask <#immunity_utilstasksimmunitycelerytask>`_.
 
-``OPENWISP_CELERY_HARD_TIME_LIMIT``
+``IMMUNITY
+_CELERY_HARD_TIME_LIMIT``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +---------+----------------------+
@@ -2102,7 +2141,8 @@ Sets the soft time limit for celery tasks using
 Sets the hard time limit for celery tasks using
 `ImmunityCeleryTask <#immunity_utilstasksimmunitycelerytask>`_.
 
-``OPENWISP_AUTOCOMPLETE_FILTER_VIEW``
+``IMMUNITY
+_AUTOCOMPLETE_FILTER_VIEW``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 +---------+-------------------------------------------------------------+
 | type    | ``str``                                                     |

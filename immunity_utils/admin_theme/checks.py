@@ -7,7 +7,8 @@ from . import settings as app_settings
 def admin_theme_settings_checks(app_configs, **kwargs):
     errors = []
     links_error = False
-    for item in app_settings.OPENWISP_ADMIN_THEME_LINKS:
+    for item in app_settings.IMMUNITY
+_ADMIN_THEME_LINKS:
         if not isinstance(item, dict):
             links_error = True
             break
@@ -18,21 +19,27 @@ def admin_theme_settings_checks(app_configs, **kwargs):
         errors.append(
             Error(
                 msg='Invalid item: {}'.format(item),
-                hint='OPENWISP_ADMIN_THEME_LINKS should be a list of dictionaries, '
+                hint='IMMUNITY
+_ADMIN_THEME_LINKS should be a list of dictionaries, '
                 'each dictionary must contain the following keys: rel, type and href.',
-                obj='OPENWISP_ADMIN_THEME_LINKS',
+                obj='IMMUNITY
+_ADMIN_THEME_LINKS',
             )
         )
 
     is_list_of_str = all(
-        isinstance(item, str) for item in app_settings.OPENWISP_ADMIN_THEME_JS
+        isinstance(item, str) for item in app_settings.IMMUNITY
+_ADMIN_THEME_JS
     )
-    if not isinstance(app_settings.OPENWISP_ADMIN_THEME_JS, list) or not is_list_of_str:
+    if not isinstance(app_settings.IMMUNITY
+_ADMIN_THEME_JS, list) or not is_list_of_str:
         errors.append(
             Error(
                 msg='Improperly Configured',
-                hint='OPENWISP_ADMIN_THEME_JS should be a list of strings.',
-                obj='OPENWISP_ADMIN_THEME_JS',
+                hint='IMMUNITY
+_ADMIN_THEME_JS should be a list of strings.',
+                obj='IMMUNITY
+_ADMIN_THEME_JS',
             )
         )
     return errors

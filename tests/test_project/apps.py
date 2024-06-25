@@ -32,7 +32,8 @@ class TestAppConfig(ApiAppConfig):
         items = [{'model': 'test_project.Shelf'}]
         register_menu_items(items)
         # Required only for testing
-        register_menu_items(items, name_menu='OPENWISP_TEST_ADMIN_MENU_ITEMS')
+        register_menu_items(items, name_menu='IMMUNITY
+_TEST_ADMIN_MENU_ITEMS')
 
     def register_dashboard_charts(self):
         register_dashboard_chart(

@@ -26,7 +26,8 @@ def create_dir(*paths: str):
         create_dir(settings.BASE_DIR, 'test_storage_dir', 'test_staticfiles_dir')
     ],
     STATICFILES_FINDERS=['django.contrib.staticfiles.finders.FileSystemFinder'],
-    OPENWISP_STATICFILES_VERSIONED_EXCLUDE=['*skip_this.txt'],
+    IMMUNITY
+_STATICFILES_VERSIONED_EXCLUDE=['*skip_this.txt'],
 )
 class TestCompressStaticFilesStorage(TestCase):
     @classmethod

@@ -35,10 +35,13 @@ class TestThemeHelpers(TestCase):
         with self.subTest('Test registering list of links'):
             register_theme_link(links)
             admin_theme = admin_theme_settings(None)
-            self.assertIn(links[0], admin_theme['OPENWISP_ADMIN_THEME_LINKS'])
+            self.assertIn(links[0], admin_theme['IMMUNITY
+_ADMIN_THEME_LINKS'])
             self.assertListEqual(
-                admin_theme['OPENWISP_ADMIN_THEME_LINKS'],
-                app_settings.OPENWISP_ADMIN_THEME_LINKS + links,
+                admin_theme['IMMUNITY
+_ADMIN_THEME_LINKS'],
+                app_settings.IMMUNITY
+_ADMIN_THEME_LINKS + links,
             )
 
         with self.subTest('Test duplicate registration of links'):
@@ -46,7 +49,8 @@ class TestThemeHelpers(TestCase):
                 register_theme_link(links)
             self.assertEqual(
                 str(error.exception),
-                f'{links[0]["href"]} is already present in OPENWISP_ADMIN_THEME_LINKS',
+                f'{links[0]["href"]} is already present in IMMUNITY
+_ADMIN_THEME_LINKS',
             )
 
         with self.subTest('Test unregistering single link'):
@@ -72,13 +76,15 @@ class TestThemeHelpers(TestCase):
                 )
             self.assertEqual(
                 str(context.exception),
-                '/static/non-existent.css was not added to OPENWISP_ADMIN_THEME_LINKS',
+                '/static/non-existent.css was not added to IMMUNITY
+_ADMIN_THEME_LINKS',
             )
 
         with self.subTest('Test unregistering list of link'):
             unregister_theme_link(links)
             admin_theme = admin_theme_settings(None)
-            self.assertNotIn(links[0], admin_theme['OPENWISP_ADMIN_THEME_LINKS'])
+            self.assertNotIn(links[0], admin_theme['IMMUNITY
+_ADMIN_THEME_LINKS'])
 
     @patch('immunity_utils.admin_theme.theme.THEME_JS', ['dummy.js'])
     def test_registering_unregistering_js(self):
@@ -96,10 +102,13 @@ class TestThemeHelpers(TestCase):
         with self.subTest('Test registering list of js'):
             register_theme_js(jss)
             admin_theme = admin_theme_settings(None)
-            self.assertIn(jss[0], admin_theme['OPENWISP_ADMIN_THEME_JS'])
+            self.assertIn(jss[0], admin_theme['IMMUNITY
+_ADMIN_THEME_JS'])
             self.assertListEqual(
-                admin_theme['OPENWISP_ADMIN_THEME_JS'],
-                app_settings.OPENWISP_ADMIN_THEME_JS + jss,
+                admin_theme['IMMUNITY
+_ADMIN_THEME_JS'],
+                app_settings.IMMUNITY
+_ADMIN_THEME_JS + jss,
             )
 
         with self.subTest('Test duplicate registration of js'):
@@ -107,7 +116,8 @@ class TestThemeHelpers(TestCase):
                 register_theme_js(jss)
             self.assertEqual(
                 str(error.exception),
-                f'{jss[0]} is already present in OPENWISP_ADMIN_THEME_JS',
+                f'{jss[0]} is already present in IMMUNITY
+_ADMIN_THEME_JS',
             )
 
         with self.subTest('Test unregistering single js'):
@@ -124,10 +134,12 @@ class TestThemeHelpers(TestCase):
                 unregister_theme_js(['/static/non-existent.js'])
             self.assertEqual(
                 str(context.exception),
-                '/static/non-existent.js was not added to OPENWISP_ADMIN_THEME_JS',
+                '/static/non-existent.js was not added to IMMUNITY
+_ADMIN_THEME_JS',
             )
 
         with self.subTest('Test unregistering list of js'):
             unregister_theme_js(jss)
             admin_theme = admin_theme_settings(None)
-            self.assertNotIn(jss[0], admin_theme['OPENWISP_ADMIN_THEME_JS'])
+            self.assertNotIn(jss[0], admin_theme['IMMUNITY
+_ADMIN_THEME_JS'])

@@ -1,4 +1,5 @@
-_ENABLED_OPENWISP_MODULES_RETURN_VALUE = {
+_ENABLED_IMMUNITY
+_MODULES_RETURN_VALUE = {
     'immunity-utils': '1.1.0a',
     'immunity-users': '1.1.0a',
 }

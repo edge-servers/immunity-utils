@@ -8,7 +8,8 @@ from django.test import TestCase
 from django.urls import reverse
 from immunity_utils.admin import CopyableFieldError, CopyableFieldsAdmin, ReadOnlyAdmin
 from immunity_utils.admin_theme import settings as admin_theme_settings
-from immunity_utils.admin_theme.apps import OpenWispAdminThemeConfig, _staticfy
+from immunity_utils.admin_theme.apps import Immunity
+AdminThemeConfig, _staticfy
 from immunity_utils.admin_theme.checks import admin_theme_settings_checks
 from immunity_utils.admin_theme.filters import InputFilter, SimpleInputFilter
 
@@ -300,36 +301,48 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
     def test_admin_theme_css_setting(self):
         # test for improper configuration : not a list
         with patch.object(
-            admin_theme_settings, 'OPENWISP_ADMIN_THEME_LINKS', 'string instead of list'
+            admin_theme_settings, 'IMMUNITY
+_ADMIN_THEME_LINKS', 'string instead of list'
         ):
             self.assertIn(
-                'OPENWISP_ADMIN_THEME_LINKS',
-                str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
+                'IMMUNITY
+_ADMIN_THEME_LINKS',
+                str(admin_theme_settings_checks(Immunity
+AdminThemeConfig)[0]),
             )
         # test for improper configuration : list_elements != type(dict)
         with patch.object(
             admin_theme_settings,
-            'OPENWISP_ADMIN_THEME_LINKS',
+            'IMMUNITY
+_ADMIN_THEME_LINKS',
             ['/static/custom-admin-theme.css'],
         ):
             self.assertIn(
-                'OPENWISP_ADMIN_THEME_LINKS',
-                str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
+                'IMMUNITY
+_ADMIN_THEME_LINKS',
+                str(admin_theme_settings_checks(Immunity
+AdminThemeConfig)[0]),
             )
         # test for improper configuration: dict missing required keys
         with patch.object(
-            admin_theme_settings, 'OPENWISP_ADMIN_THEME_LINKS', [{'wrong': True}]
+            admin_theme_settings, 'IMMUNITY
+_ADMIN_THEME_LINKS', [{'wrong': True}]
         ):
             self.assertIn(
-                'OPENWISP_ADMIN_THEME_LINKS',
-                str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
+                'IMMUNITY
+_ADMIN_THEME_LINKS',
+                str(admin_theme_settings_checks(Immunity
+AdminThemeConfig)[0]),
             )
         # test with desired configuration
         # Here immunity_utils.admin_theme.theme.THEME_LINKS has been
-        # mocked instead of app_settings.OPENWISP_ADMIN_THEME_LINKS
+        # mocked instead of app_settings.IMMUNITY
+_ADMIN_THEME_LINKS
         # because immunity_utils.admin_theme.theme.THEME_LINKS creates
-        # a copy of app_settings.OPENWISP_ADMIN_THEME_LINKS at project
-        # startup. Therefore, mocking app_settings.OPENWISP_ADMIN_THEME_LINKS
+        # a copy of app_settings.IMMUNITY
+_ADMIN_THEME_LINKS at project
+        # startup. Therefore, mocking app_settings.IMMUNITY
+_ADMIN_THEME_LINKS
         # will have no effect here.
         with patch(
             'immunity_utils.admin_theme.theme.THEME_LINKS',
@@ -366,24 +379,33 @@ class TestAdmin(AdminTestMixin, CreateMixin, TestCase):
     def test_admin_theme_js_setting(self):
         # test for improper configuration : not a list
         with patch.object(
-            admin_theme_settings, 'OPENWISP_ADMIN_THEME_JS', 'string instead of list'
+            admin_theme_settings, 'IMMUNITY
+_ADMIN_THEME_JS', 'string instead of list'
         ):
             self.assertIn(
-                'OPENWISP_ADMIN_THEME_JS',
-                str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
+                'IMMUNITY
+_ADMIN_THEME_JS',
+                str(admin_theme_settings_checks(Immunity
+AdminThemeConfig)[0]),
             )
         # test for improper configuration : list_elements != type(str)
-        with patch.object(admin_theme_settings, 'OPENWISP_ADMIN_THEME_JS', [0, 1, 2]):
+        with patch.object(admin_theme_settings, 'IMMUNITY
+_ADMIN_THEME_JS', [0, 1, 2]):
             self.assertIn(
-                'OPENWISP_ADMIN_THEME_JS',
-                str(admin_theme_settings_checks(OpenWispAdminThemeConfig)[0]),
+                'IMMUNITY
+_ADMIN_THEME_JS',
+                str(admin_theme_settings_checks(Immunity
+AdminThemeConfig)[0]),
             )
         # test with desired configuration
         # Here immunity_utils.admin_theme.theme.THEME_JS has been
-        # mocked instead of app_settings.OPENWISP_ADMIN_THEME_JS
+        # mocked instead of app_settings.IMMUNITY
+_ADMIN_THEME_JS
         # because immunity_utils.admin_theme.theme.THEME_JS creates
-        # a copy of app_settings.OPENWISP_ADMIN_THEME_JS at project
-        # startup. Therefore, mocking app_settings.OPENWISP_ADMIN_THEME_JS
+        # a copy of app_settings.IMMUNITY
+_ADMIN_THEME_JS at project
+        # startup. Therefore, mocking app_settings.IMMUNITY
+_ADMIN_THEME_JS
         # will have no effect here.
         with patch(
             'immunity_utils.admin_theme.theme.THEME_JS',

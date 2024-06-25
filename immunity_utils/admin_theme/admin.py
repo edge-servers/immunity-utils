@@ -21,12 +21,15 @@ logger = logging.getLogger(__name__)
 
 class ImmunityAdminSite(admin.AdminSite):
     # <title>
-    site_title = getattr(settings, 'OPENWISP_ADMIN_SITE_TITLE', 'Immunity Admin')
+    site_title = getattr(settings, 'IMMUNITY
+_ADMIN_SITE_TITLE', 'Immunity Admin')
     # h1 text
-    site_header = getattr(settings, 'OPENWISP_ADMIN_SITE_HEADER', 'Immunity')
+    site_header = getattr(settings, 'IMMUNITY
+_ADMIN_SITE_HEADER', 'Immunity')
     # text at the top of the admin index page
     index_title = _(
-        getattr(settings, 'OPENWISP_ADMIN_INDEX_TITLE', 'Network Administration')
+        getattr(settings, 'IMMUNITY
+_ADMIN_INDEX_TITLE', 'Network Administration')
     )
     enable_nav_sidebar = False
     metric_collection = MetricCollectionAdminSiteHelper

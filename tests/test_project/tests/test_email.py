@@ -51,7 +51,8 @@ class TestEmail(TestCase):
             email.alternatives[0][0],
         )
 
-    @patch.object(app_settings, 'OPENWISP_HTML_EMAIL', False)
+    @patch.object(app_settings, 'IMMUNITY
+_HTML_EMAIL', False)
     def test_no_html_email(self):
         send_email(
             'Test mail',

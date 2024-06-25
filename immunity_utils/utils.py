@@ -24,7 +24,8 @@ def get_random_key():
     return get_random_string(length=32)
 
 
-def register_menu_items(items, name_menu='OPENWISP_DEFAULT_ADMIN_MENU_ITEMS'):
+def register_menu_items(items, name_menu='IMMUNITY
+_DEFAULT_ADMIN_MENU_ITEMS'):
     if not hasattr(settings, name_menu):
         setattr(settings, name_menu, items)
     else:

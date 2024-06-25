@@ -5,8 +5,10 @@
 
 {% block extrastyle %}
 {{ block.super }}
-{% if OPENWISP_ADMIN_THEME_LINKS %}
-  {% for link in OPENWISP_ADMIN_THEME_LINKS %}
+{% if IMMUNITY
+_ADMIN_THEME_LINKS %}
+  {% for link in IMMUNITY
+_ADMIN_THEME_LINKS %}
     <link rel="{{ link.rel }}" type="{{ link.type }}"
       href="{{ link.href }}" {% if link.media %}media="{{ link.media }}" {% endif %}/>
   {% endfor %}
@@ -70,8 +72,10 @@
 {% if user.is_authenticated and user.is_staff %}
     <script src="{% static "admin/js/menu.js" %}"></script>
 {% endif %}
-{% if OPENWISP_ADMIN_THEME_JS %}
-    {% for js in OPENWISP_ADMIN_THEME_JS %}
+{% if IMMUNITY
+_ADMIN_THEME_JS %}
+    {% for js in IMMUNITY
+_ADMIN_THEME_JS %}
         <script src="{{ js }}"></script>
     {% endfor %}
 {% endif %}
